@@ -12,5 +12,4 @@ class MongoServiceConector:
     def find(self,bd_name,collecion,query,projection = {}):
         collection = self.client[bd_name][collecion]
         documents = collection.find(query,projection)
-        for doc in documents:
-            print(doc)  
+        return documents
