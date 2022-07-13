@@ -10,7 +10,7 @@ class ProcessadorXML():
       self._xml = xml
 
   def procesar(self):
-    root = ET.fromstring(fileBlob)
+    root = ET.fromstring(self._xml)
     listXmlData = []
     print("All atributes ")    
     codDoc = root.find('infoTributaria/codDoc').text
