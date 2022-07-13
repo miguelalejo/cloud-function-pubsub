@@ -27,6 +27,6 @@ def hello_pubsub(event, context):
                listComprobantes.append(comprobanteTO)
      if len(listComprobantes):
           print("Generar Reporte")
-          reporte = procesarComprobante.crearReporteDevIva(listaComprobanteTO)
+          reporte = procesarComprobante.crearReporteDevIva(listComprobantes)
           reporte.to_excel("{fId}.xlsx".format(fId=group_id))
      print(pubsub_message)
