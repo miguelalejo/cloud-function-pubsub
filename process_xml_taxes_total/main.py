@@ -1,6 +1,6 @@
 import base64
 from MongoService import *
-from ProcesorReport import *
+from ProcessorReport import *
 
 def hello_pubsub(event, context):
      """Triggered from a message on a Cloud Pub/Sub topic.
