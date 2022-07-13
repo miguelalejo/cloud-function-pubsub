@@ -18,8 +18,10 @@ def hello_pubsub(event, context):
      listComprobantes = []
      for doc in documents:
           if "blob_xml" in doc.keys():
+               print(doc)
                print("Generar Blob")
                fileBlob = doc["blob_xml"]
+               print(fileBlob)
                procesarComprobante = ProcessadorXML(fileBlob) 
                comprobanteTO = procesarComprobante.procesar()
                listComprobantes.append(comprobanteTO)
