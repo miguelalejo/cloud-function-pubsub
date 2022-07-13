@@ -17,7 +17,7 @@ def hello_pubsub(event, context):
      documents = mgConectorServ.find(bd_name="edocuments",collecion="bills",query= {'group_id': group_id },projection={ "group_id": 1, "_id": 1 ,"file_name":1,"blob_xml":1})
      listComprobantes = []
      for doc in documents:
-          if "blob_xml" is doc.keys()
+          if "blob_xml" is doc.keys():
                print("Generar Blob")
                fileBlob = doc["blob_xml"]
                procesarComprobante = ProcessadorXML(fileBlob) 
