@@ -27,7 +27,8 @@ def hello_pubsub(event, context):
                listComprobantes.append(comprobanteTO)
                if len(listComprobantes):
                     print("Generar Reporte")
-                    procesarComprobante.exportarReporte(listComprobantes,group_id)
+                    reporte = procesarComprobante.crearReporteDevIva(listComprobantes)
+                    procesarComprobante.exportarReporte(reporte,group_id)
                     print("**Generarado Reporte")
      
      print(pubsub_message)
