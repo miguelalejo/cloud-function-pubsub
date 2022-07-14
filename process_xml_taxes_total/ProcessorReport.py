@@ -1,5 +1,4 @@
 import base64
-import numpy as np
 import xml.etree.ElementTree as ET
 import pandas as pd
 from EnumsReport import *
@@ -24,7 +23,11 @@ class ProcessadorXML():
         codigo = int(totalImpuesto.find('codigo').text)
         codigoPorcentaje = totalImpuesto.find('codigoPorcentaje').text
         baseImponible = totalImpuesto.find('baseImponible').text
-        tarifa = float(totalImpuesto.find('tarifa').text)
+        nodoTarifa = totalImpuesto.find('tarifa')
+        if nodoTarifa is None:
+          tarifa = None
+        else:
+          tarifa = float(totalImpuesto.find('tarifa').text)
         valor = float(totalImpuesto.find('valor').text)
         print(valor)
         impuestoTO = ImpuestoTO(codigo,codigoPorcentaje,baseImponible,tarifa,valor)
