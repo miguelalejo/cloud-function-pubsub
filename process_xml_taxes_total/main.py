@@ -1,6 +1,20 @@
 import base64
 from MongoService import *
 from ProcessorReport import *
+import datetime
+
+def createObject(mgConector,groupId,blobExcel,ruc):
+    try:
+        mgConector.insert_one(bd_name="edocuments",collecion="excel_dev_reports", value={'group_id': groupId, 'blob_excel': blobExcel,  'ruc':ruc,'date':datetime.datetime.utcnow()}) 
+    except DuplicateKeyError as e:
+        print(e)
+        print("Errro insert")
+
+def readfile(filePath):
+     in_file = open(filePath, "rb") # opening for [r]eading as [b]inary
+     data = in_file.read() # if you only wanted to read 512 bytes, do .read(512)
+     in_file.close()
+     return data
 
 def hello_pubsub(event, context):
      """Triggered from a message on a Cloud Pub/Sub topic.
@@ -27,15 +41,13 @@ def hello_pubsub(event, context):
                listComprobantes.append(comprobanteTO)
                if len(listComprobantes):
                     print("Generar Reporte")
-                    reporte = procesarComprobante.crearReporteDevIva(listComprobantes)
-                    procesarComprobante.exportarReporte(reporte,group_id)
-                    print("**Generarado Reporte")
+                    reporte,ruc = procesarComprobante.crearReporteDevIva(listComprobantes)
+                    filePath = procesarComprobante.exportarReporte(reporte,group_id)
+                    print("Generarado Reporte")
+                    blobExcel = readfile(filePath)
+                    createObject(mgConectorServ,groupId,blobExcel,ruc)
+                    print("Enviado Reporte")
      
      print(pubsub_message)
 
-def createObject(mgConector,groupId,blobExcel,fileName):
-    try:
-        mgConector.insert_one(bd_name="edocuments",collecion="excel_dev_reports", value={'group_id': groupId, 'blob_excel': blobExcel,  'file_name': fileName}) 
-    except DuplicateKeyError as e:
-        print(e)
-        print("Errro insert")
+

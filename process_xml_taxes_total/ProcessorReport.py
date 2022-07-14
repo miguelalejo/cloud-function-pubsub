@@ -42,19 +42,20 @@ class ProcessadorXML():
     for comprobante in comprobantes:
 
       if comprobante.gravaImpuesto and TipoDocumento.FACTURA.value == comprobante.codDoc :
-        print("Grava")      
+        print("Grava")
         print(comprobante.dia)
         tuplaComprobante = {'RUC PROVEEDOR':comprobante.ruc,'NRO_FACTURA':comprobante.nroFactura,'DIA':comprobante.dia,'MES':comprobante.mes,'ANIO':comprobante.anio,'IVA':comprobante.totalIva,'ICE':comprobante.totalIce}      
         listaComprobantes.append(tuplaComprobante)
-    return listaComprobantes
+    return listaComprobantes,comprobante.ruc
 
   def crearReporteDevIva(self,comprobantes:ComprobanteTO):
-    listaComprobantes = self.crearListaDevIva(comprobantes)
+    listaComprobantes,ruc = self.crearListaDevIva(comprobantes)
     dfReporteDevIva = pd.DataFrame(listaComprobantes,
                     columns=['RUC PROVEEDOR','NRO_FACTURA','DIA','MES','ANIO','IVA','ICE' 
-    ])
-    return dfReporteDevIva
+    ]).sort_values(by='IVA', ascending=False)
+    return dfReporteDevIva,ruc
   
   def exportarReporte(self,reporte,group_id):
     ruta = os.path.join(tmpdir,"{fId}.xlsx".format(fId=group_id))
     reporte.to_excel(ruta)
+    return ruta
