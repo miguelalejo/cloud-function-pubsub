@@ -3,6 +3,9 @@ import xml.etree.ElementTree as ET
 import pandas as pd
 from EnumsReport import *
 from EntitiesReport import *
+import tempfile
+import os
+tmpdir = tempfile.gettempdir()
 
 class ProcessadorXML():
   def __init__(self,xml) -> None:
@@ -51,3 +54,7 @@ class ProcessadorXML():
                     columns=['RUC PROVEEDOR','NRO_FACTURA','DIA','MES','ANIO','IVA','ICE' 
     ])
     return dfReporteDevIva
+  
+  def exportarReporte(self,reporte,group_id):
+    ruta = os.path.join(tmpdir,"{fId}.xlsx".format(fId=group_id))
+    reporte.to_excel(ruta)

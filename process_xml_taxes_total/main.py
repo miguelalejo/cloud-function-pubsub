@@ -25,8 +25,9 @@ def hello_pubsub(event, context):
                procesarComprobante = ProcessadorXML(fileBlob) 
                comprobanteTO = procesarComprobante.procesar()
                listComprobantes.append(comprobanteTO)
-     if len(listComprobantes):
-          print("Generar Reporte")
-          reporte = procesarComprobante.crearReporteDevIva(listComprobantes)
-          reporte.to_excel("{fId}.xlsx".format(fId=group_id))
+               if len(listComprobantes):
+                    print("Generar Reporte")
+                    procesarComprobante.exportarReporte(listComprobantes,group_id)
+                    print("**Generarado Reporte")
+     
      print(pubsub_message)
