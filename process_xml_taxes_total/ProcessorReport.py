@@ -37,6 +37,7 @@ class ProcessadorXML():
         impuestos.append(impuestoTO)
     return ComprobanteTO(codDoc,ruc,estab,ptoEmi,secuencial,fechaEmision,impuestos)
 
+class GenerarReporte():
   def crearListaDevIva(self,comprobantes:ComprobanteTO):
     listaComprobantes = []
     for comprobante in comprobantes:

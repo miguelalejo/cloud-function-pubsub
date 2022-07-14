@@ -39,14 +39,15 @@ def hello_pubsub(event, context):
                procesarComprobante = ProcessadorXML(fileBlob) 
                comprobanteTO = procesarComprobante.procesar()
                listComprobantes.append(comprobanteTO)
-               if len(listComprobantes):
-                    print("Generar Reporte")
-                    reporte,ruc = procesarComprobante.crearReporteDevIva(listComprobantes)
-                    filePath = procesarComprobante.exportarReporte(reporte,groupId)
-                    print("Generarado Reporte")
-                    blobExcel = readfile(filePath)
-                    createObject(mgConectorServ,groupId,blobExcel,ruc)
-                    print("Enviado Reporte")
+     if len(listComprobantes):
+          print("Generar Reporte")
+          generarReporte = GenerarReporte()
+          reporte,ruc = generarReporte.crearReporteDevIva(listComprobantes)
+          filePath = generarReporte.exportarReporte(reporte,groupId)
+          print("Generarado Reporte")
+          blobExcel = readfile(filePath)
+          createObject(mgConectorServ,groupId,blobExcel,ruc)
+          print("Enviado Reporte")
      
      print(pubsub_message)
 
