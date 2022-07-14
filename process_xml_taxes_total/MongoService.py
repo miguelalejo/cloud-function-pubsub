@@ -13,3 +13,7 @@ class MongoServiceConector:
         collection = self.client[bd_name][collecion]
         documents = collection.find(query,projection)
         return documents
+    def insert_one(self,bd_name,collecion,value):
+        collection = self.client[bd_name][collecion]
+        doc_id = collection.insert_one(value).inserted_id
+        print(doc_id)
