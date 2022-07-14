@@ -27,8 +27,8 @@ def hello_pubsub(event, context):
      user = "m001-student"
      password = "m001-mongodb-basics"    
      mgConectorServ = MongoServiceConector(uri, user, password)
-     group_id = int(pubsub_message)
-     documents = mgConectorServ.find(bd_name="edocuments",collecion="bills",query= {'group_id': group_id },projection={ "group_id": 1, "_id": 1 ,"file_name":1,"blob_xml":1})
+     groupId = int(pubsub_message)
+     documents = mgConectorServ.find(bd_name="edocuments",collecion="bills",query= {'group_id': groupId },projection={ "group_id": 1, "_id": 1 ,"file_name":1,"blob_xml":1})
      listComprobantes = []
      for doc in documents:
           if "blob_xml" in doc.keys():
@@ -42,7 +42,7 @@ def hello_pubsub(event, context):
                if len(listComprobantes):
                     print("Generar Reporte")
                     reporte,ruc = procesarComprobante.crearReporteDevIva(listComprobantes)
-                    filePath = procesarComprobante.exportarReporte(reporte,group_id)
+                    filePath = procesarComprobante.exportarReporte(reporte,groupId)
                     print("Generarado Reporte")
                     blobExcel = readfile(filePath)
                     createObject(mgConectorServ,groupId,blobExcel,ruc)

@@ -55,7 +55,7 @@ class ProcessadorXML():
     ]).sort_values(by='IVA', ascending=False)
     return dfReporteDevIva,ruc
   
-  def exportarReporte(self,reporte,group_id):
-    ruta = os.path.join(tmpdir,"{fId}.xlsx".format(fId=group_id))
+  def exportarReporte(self,reporte,groupId):
+    ruta = os.path.join(tmpdir,"{fId}.xlsx".format(fId=groupId))
     reporte.to_excel(ruta)
     return ruta
