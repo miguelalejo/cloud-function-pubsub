@@ -32,3 +32,10 @@ def hello_pubsub(event, context):
                     print("**Generarado Reporte")
      
      print(pubsub_message)
+
+def createObject(mgConector,groupId,blobExcel,fileName):
+    try:
+        mgConector.insert_one(bd_name="edocuments",collecion="excel_dev_reports", value={'group_id': groupId, 'blob_excel': blobExcel,  'file_name': fileName}) 
+    except DuplicateKeyError as e:
+        print(e)
+        print("Errro insert")
