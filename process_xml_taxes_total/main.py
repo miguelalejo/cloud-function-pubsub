@@ -40,7 +40,8 @@ def hello_pubsub(event, context):
      groupId = int(json_object['idTransaction'])
      nFiles = int(json_object['nFiles'])
      documents = mgConectorServ.find(bd_name="edocuments",collecion="bills",query= {'group_id': groupId },projection={ "group_id": 1, "_id": 1 ,"file_name":1,"blob_xml":1})     
-     print("Tamanio lista",len(documents))
+     nFileSaved = documents.count()
+     print("Tamanio lista",nFileSaved)
      print("Tamanio lista esperado",nFiles)
      if len(documents) == nFiles:
           listComprobantes = []
@@ -67,6 +68,7 @@ def hello_pubsub(event, context):
           
           print(pubsub_message)
      else:
+          print("Registerd pendien transation")
           createBatchProcess(mgConectorServ,groupId,nFiles)
      
 
