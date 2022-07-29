@@ -43,7 +43,7 @@ def hello_pubsub(event, context):
      nFileSaved = documents.count()
      print("Tamanio lista",nFileSaved)
      print("Tamanio lista esperado",nFiles)
-     if len(documents) == nFiles:
+     if nFileSaved == nFiles:
           listComprobantes = []
           for doc in documents:
                if "blob_xml" in doc.keys():
