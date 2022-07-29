@@ -66,7 +66,7 @@ def hello_pubsub(event, context):
                print("Enviado Reporte")
           
           print(pubsub_message)
-     else
+     else:
           createBatchProcess(mgConectorServ,groupId,nFiles)
      
 
