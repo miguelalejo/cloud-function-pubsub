@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<factura id="comprobante" version="1.0.0">
+    <infoTributaria>
+        <ambiente>2</ambiente>
+        <tipoEmision>1</tipoEmision>
+        <razonSocial>SRI</razonSocial>
+        <nombreComercial>SRI</nombreComercial>
+        <ruc>1760013210001</ruc>
+        <claveAcceso>0301202201176001321000120010080000000141234567811</claveAcceso>
+        <codDoc>01</codDoc>
+        <estab>001</estab>
+        <ptoEmi>008</ptoEmi>
+        <secuencial>000000014</secuencial>
+        <dirMatriz>AMAZONAS</dirMatriz>
+		<contribuyenteRimpe>CONTRIBUYENTE RÉGIMEN RIMPE</contribuyenteRimpe>
+    </infoTributaria>
+    <infoFactura>
+        <fechaEmision>03/01/2022</fechaEmision>
+        <contribuyenteEspecial>1234</contribuyenteEspecial>
+        <obligadoContabilidad>SI</obligadoContabilidad>
+        <tipoIdentificacionComprador>05</tipoIdentificacionComprador>
+        <razonSocialComprador>SRI</razonSocialComprador>
+        <identificacionComprador>1710970169</identificacionComprador>
+        <direccionComprador>Adrián</direccionComprador>
+        <totalSinImpuestos>150.00</totalSinImpuestos>
+        <totalDescuento>0.00</totalDescuento>
+		<codDocReembolso>41</codDocReembolso>
+		<totalComprobantesReembolso>165.75</totalComprobantesReembolso>
+		<totalBaseImponibleReembolso>150.00</totalBaseImponibleReembolso>
+		<totalImpuestoReembolso>15.75</totalImpuestoReembolso>
+        <totalConImpuestos>
+            <totalImpuesto>
+                <codigo>2</codigo>
+                <codigoPorcentaje>8</codigoPorcentaje>
+                <baseImponible>150.00</baseImponible>
+                <tarifa>12</tarifa>
+                <valor>18.00</valor>
+            </totalImpuesto>
+        </totalConImpuestos>
+        <propina>0.00</propina>
+        <importeTotal>165.75</importeTotal>
+        <moneda>DOLAR</moneda>
+        <pagos>
+            <pago>
+                <formaPago>01</formaPago>
+                <total>165.75</total>
+                <plazo>1</plazo>
+                <unidadTiempo>Días</unidadTiempo>
+            </pago>
+        </pagos>
+    </infoFactura>
+    <detalles>
+        <detalle>
+            <codigoPrincipal>1</codigoPrincipal>
+            <descripcion>REEMBOLSO DE GASTOS</descripcion>
+            <cantidad>1</cantidad>
+            <precioUnitario>150.00</precioUnitario>
+            <descuento>0</descuento>
+            <precioTotalSinImpuesto>150.00</precioTotalSinImpuesto>
+            <impuestos>
+                <impuesto>
+                    <codigo>2</codigo>
+                    <codigoPorcentaje>8</codigoPorcentaje>
+                    <tarifa>10.50</tarifa>
+                    <baseImponible>150.00</baseImponible>
+                    <valor>15.75</valor>
+                </impuesto>
+            </impuestos>
+        </detalle>
+    </detalles>
+	<reembolsos>
+		<reembolsoDetalle>
+			<tipoIdentificacionProveedorReembolso>04</tipoIdentificacionProveedorReembolso>
+			<identificacionProveedorReembolso>1760013210001</identificacionProveedorReembolso>
+			<codPaisPagoProveedorReembolso>593</codPaisPagoProveedorReembolso>
+			<tipoProveedorReembolso>01</tipoProveedorReembolso>
+			<codDocReembolso>12</codDocReembolso>
+			<estabDocReembolso>001</estabDocReembolso>
+			<ptoEmiDocReembolso>501</ptoEmiDocReembolso>
+			<secuencialDocReembolso>000000008</secuencialDocReembolso>
+			<fechaEmisionDocReembolso>03/01/2022</fechaEmisionDocReembolso>
+			<numeroautorizacionDocReemb>1809201901179226110400110015010000000081234567816</numeroautorizacionDocReemb>
+			<detalleImpuestos>
+				<detalleImpuesto>
+					<codigo>2</codigo>
+					<codigoPorcentaje>8</codigoPorcentaje>
+					<tarifa>10.50</tarifa>
+					<baseImponibleReembolso>150.00</baseImponibleReembolso>
+					<impuestoReembolso>15.75</impuestoReembolso>
+				</detalleImpuesto>
+			</detalleImpuestos>
+		</reembolsoDetalle>
+	</reembolsos>	
+    <infoAdicional>
+        <campoAdicional nombre="Dirección">dsfdf</campoAdicional>
+        <campoAdicional nombre="Teléfono">022222222</campoAdicional>
+        <campoAdicional nombre="Email">pruebas@pruebas.com</campoAdicional>
+    </infoAdicional>
+<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:etsi="http://uri.etsi.org/01903/v1.3.2#" Id="Signature891853">
+<ds:SignedInfo Id="Signature-SignedInfo269213">
+<ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"></ds:CanonicalizationMethod>
+<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"></ds:SignatureMethod>
+<ds:Reference Id="SignedPropertiesID568514" Type="http://uri.etsi.org/01903#SignedProperties" URI="#Signature891853-SignedProperties121585">
+<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod>
+<ds:DigestValue>GFvLxFaxOE9B2VQWAIKXiSCBgB8=</ds:DigestValue>
+</ds:Reference>
+<ds:Reference URI="#Certificate1739055">
+<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod>
+<ds:DigestValue>ldx1OpPjtU1Ntnv2J9tv6T9W62M=</ds:DigestValue>
+</ds:Reference>
+<ds:Reference Id="Reference-ID-336369" URI="#comprobante">
+<ds:Transforms>
+<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"></ds:Transform>
+</ds:Transforms>
+<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod>
+<ds:DigestValue>3c2k+ZDtIdPhlAy/0Cee4umF16U=</ds:DigestValue>
+</ds:Reference>
+</ds:SignedInfo>
+<ds:SignatureValue Id="SignatureValue774971">
+RdrsPBhp3Oh9AMN8++AtU8ACPglwjyr+CyjYRI2PUVQHj0O7cVJVgYrorBoMedf2QbAOpjV3tjlb
+/yt1BhgH1qKArwJHU1GUDWjCeOgYH0k8GPp2pmBqKe1wJR32Wu+aU0Q2hkcJCyns+fXWHssMQKRN
+CMla/TlaLBGdwCNdWyblUERjwXUS7dlk/TXO9IqlFVxkWjQxzs9JP+FE19Ffe19t/ZhuzViV3jsI
+r31KZIsa8xrqbUZwoeQJlfp99ZfCK0V8LUvYTw094YdzNTgh7lDNhu2wYoyG7/ACjWlpUmB0JBBU
+5nJ29B0uOvcbzeSihvW6g2csZlOSbW1ei2QAEQ==
+</ds:SignatureValue>
+<ds:KeyInfo Id="Certificate1739055">
+<ds:X509Data>
+<ds:X509Certificate>
+MIIMDjCCCfagAwIBAgIEWBIHaDANBgkqhkiG9w0BAQsFADCBmTELMAkGA1UEBhMCRUMxHTAbBgNV
+BAoMFFNFQ1VSSVRZIERBVEEgUy5BLiAyMTAwLgYDVQQLDCdFTlRJREFEIERFIENFUlRJRklDQUNJ
+T04gREUgSU5GT1JNQUNJT04xOTA3BgNVBAMMMEFVVE9SSURBRCBERSBDRVJUSUZJQ0FDSU9OIFNV
+QkNBLTIgU0VDVVJJVFkgREFUQTAeFw0yMDA1MjIxODQwMjRaFw0yMjA1MjIxODQwMjRaMIGqMTMw
+MQYDVQQDDCpQUlVFQkEgU1JJIFJMRUdBTCBTRVJWSUNJTyBSRU5UQVMgSU5URVJOQVMxFTATBgNV
+BAUTDDIyMDUyMDEzNTAyNDEwMC4GA1UECwwnRU5USURBRCBERSBDRVJUSUZJQ0FDSU9OIERFIElO
+Rk9STUFDSU9OMR0wGwYDVQQKDBRTRUNVUklUWSBEQVRBIFMuQS4gMjELMAkGA1UEBhMCRUMwggEi
+MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDoDY1iT/NWIQIvUkSm8j2+yAywxeMPtl6g4xcV
+MLShrXQ8biyD0NNeMe3DYAOSXw4VclQtm/sF07NgMC8XhlCb8YWzO9T0t+rEr66WHJQ7Ay+DuqvM
+28JdxnmgpadKRnYFG4v6ZEM5qT8708+L58Pj2skHTU8Nz04Wj+Km7Ia9kDveWt0/2sj6QpfzqSx6
+TJpvEuER2UImSRr1IGsr1JrmxBzqg+FOjmUQFlsUanyNC8MIGmFkkySgVxJ7xl9v7EluIBHHwG/Q
+GVyMXOmm+Hgc5Kt3dzR9mnZzbxApaMJYiBTpg7MbKE2TYYVSVHTJ+bLbEew8E2qGDJVknRJ2f4+V
+AgMBAAGjggdJMIIHRTAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFIy6yhFXeCWAHWsKS1W/ja5i
+3b2PMFkGCCsGAQUFBwEBBE0wSzBJBggrBgEFBQcwAYY9aHR0cDovL29jc3Bndy5zZWN1cml0eWRh
+dGEubmV0LmVjL2VqYmNhL3B1YmxpY3dlYi9zdGF0dXMvb2NzcDCBzwYDVR0uBIHHMIHEMIHBoIG+
+oIG7hoG4bGRhcDovL2xkYXBzZGNhMi5zZWN1cml0eWRhdGEubmV0LmVjL0NOPUFVVE9SSURBRCBE
+RSBDRVJUSUZJQ0FDSU9OIFNVQkNBLTIgU0VDVVJJVFkgREFUQSxPVT1FTlRJREFEIERFIENFUlRJ
+RklDQUNJT04gREUgSU5GT1JNQUNJT04sTz1TRUNVUklUWSBEQVRBIFMuQS4gMixDPUVDP2RlbHRh
+UmV2b2NhdGlvbkxpc3Q/YmFzZTAkBgNVHREEHTAbgRlhZG1pbkBzZWN1cml0eWRhdGEubmV0LmVj
+MIIBFQYDVR0gBIIBDDCCAQgwYgYKKwYBBAGCpnICCTBUMFIGCCsGAQUFBwICMEYeRABDAGUAcgB0
+AGkAZgBpAGMAYQBkAG8AIABkAGUAIABSAGUAcAByAGUAcwBlAG4AdABhAG4AdABlACAATABlAGcA
+YQBsMIGhBgorBgEEAYKmcgIDMIGSMIGPBggrBgEFBQcCARaBgmh0dHBzOi8vd3d3LnNlY3VyaXR5
+ZGF0YS5uZXQuZWMvd3AtY29udGVudC9kb3dubG9hZHMvTm9ybWF0aXZhcy9QX2RlX0NlcnRpZmlj
+YWRvcy9Qb2xpdGljYXMgZGUgQ2VydGlmaWNhZG8gUmVwcmVzZW50YW50ZSBMZWdhbC5wZGYwggKi
+BgNVHR8EggKZMIIClTCB5aBBoD+GPWh0dHA6Ly9vY3NwZ3cuc2VjdXJpdHlkYXRhLm5ldC5lYy9l
+amJjYS9wdWJsaWN3ZWIvc3RhdHVzL29jc3CigZ+kgZwwgZkxOTA3BgNVBAMMMEFVVE9SSURBRCBE
+RSBDRVJUSUZJQ0FDSU9OIFNVQkNBLTIgU0VDVVJJVFkgREFUQTEwMC4GA1UECwwnRU5USURBRCBE
+RSBDRVJUSUZJQ0FDSU9OIERFIElORk9STUFDSU9OMR0wGwYDVQQKDBRTRUNVUklUWSBEQVRBIFMu
+QS4gMjELMAkGA1UEBhMCRUMwgceggcSggcGGgb5sZGFwOi8vbGRhcHNkY2EyLnNlY3VyaXR5ZGF0
+YS5uZXQuZWMvQ049QVVUT1JJREFEIERFIENFUlRJRklDQUNJT04gU1VCQ0EtMiBTRUNVUklUWSBE
+QVRBLE9VPUVOVElEQUQgREUgQ0VSVElGSUNBQ0lPTiBERSBJTkZPUk1BQ0lPTixPPVNFQ1VSSVRZ
+IERBVEEgUy5BLiAyLEM9RUM/Y2VydGlmaWNhdGVSZXZvY2F0aW9uTGlzdD9iYXNlMIHgoIHdoIHa
+hoHXaHR0cHM6Ly9wb3J0YWwtb3BlcmFkb3IyLnNlY3VyaXR5ZGF0YS5uZXQuZWMvZWpiY2EvcHVi
+bGljd2ViL3dlYmRpc3QvY2VydGRpc3Q/Y21kPWNybCZpc3N1ZXI9Q049QVVUT1JJREFEIERFIENF
+UlRJRklDQUNJT04gU1VCQ0EtMiBTRUNVUklUWSBEQVRBLE9VPUVOVElEQUQgREUgQ0VSVElGSUNB
+Q0lPTiBERSBJTkZPUk1BQ0lPTixPPVNFQ1VSSVRZIERBVEEgUy5BLiAyLEM9RUMwHQYDVR0OBBYE
+FKpKFxrb5GikmVq6E1zQvEzqYGmeMCsGA1UdEAQkMCKADzIwMjAwNTIyMTg0MDI0WoEPMjAyMjA1
+MjIxODQwMjRaMAsGA1UdDwQEAwIF4DAfBgorBgEEAYKmcgMFBBEMD0dFUkVOVEUgR0VORVJBTDAa
+BgorBgEEAYKmcgMBBAwMCjE3MTM1Mzg5NjMwFQYKKwYBBAGCpnIDCQQHDAVRVUlUTzARBgorBgEE
+AYKmcgMiBAMMAS4wGQYKKwYBBAGCpnIDBwQLDAlESVJFQ0NJT04wIQYKKwYBBAGCpnIDAgQTDBFQ
+UlVFQkEgU1JJIFJMRUdBTDAfBgorBgEEAYKmcgMgBBEMDzAwMjAwMTAwMDAwMDA1MjATBgorBgEE
+AYKmcgMhBAUMA1BGWDAXBgorBgEEAYKmcgMMBAkMB0VDVUFET1IwGAYKKwYBBAGCpnIDAwQKDAhT
+RVJWSUNJTzArBgorBgEEAYKmcgMKBB0MG1NFUlZJQ0lPIERFIFJFTlRBUyBJTlRFUk5BUzAdBgor
+BgEEAYKmcgMLBA8MDTE3NjAwMTMyMTAwMDEwEQYKKwYBBAGCpnIDHQQDDAEuMB8GCisGAQQBgqZy
+AwQEEQwPUkVOVEFTIElOVEVSTkFTMBsGCisGAQQBgqZyAwgEDQwLNTkzMjIxMjM0NTYwDQYJKoZI
+hvcNAQELBQADggIBAEw/IwVPq2IDIR1ub1DagDRyfCa0vyPzKJZIaQwkSAKqN4Q12JsBLBJG2mIp
+r5LsmaAqNAjvFqLYMSEYK5A9GYn5QxOOeerStPD8u5bZ8PBSJB56zC7S/hsnbDA41ZA+xEZreAG6
+tTDJqFUhqcZFlSFSFsJ+/tn/ml7TSDbBxSfkVkHNKYDGg57B4yfxevrWA3Bc/dfwGTLDKqdNk2gP
+M4KOEhDhBOKy5LBVvMSfOyM1OT0G7OsARE9bD9UtZ6nv5anmUvV3Y8/2UCif7+ega7o6BCzqsbvf
+kJYhoR7zgbpfWpZW1y24BqvOgmI6RcoNKH0t3wwGWsYrrERNoj1I6d7+Lyrmq2uhtQzpSNI6AcjA
+ShdVswDbhNqIrRr9ILxvA6sBnDNTLmMimdPjwDH/C7BfOtSBRReCF/6brhIOuUQGzBcCk7noLpen
+SIYWx0Q2gZjqe7eadkSriAKLojsb9/ee3FCweeS1W7gMXPMNKkYVMro0gmwXhWrJl/4RJpI4wXUx
+VBxHqiy2WJ/XLkg0KKcEqPXycYsSIVof18UpZxE4lsmXxVTEMl8MG5kxG3jQ/9DlCibqCojROTMS
+jaYlFZKXxd4wRx5ERqV2vBzsggrVz8pSeoNIYRzZr559nT1lqMAKwPzSawgjvJIiKm3yQFOe4rUa
+yAu6bxmJStevHJiP
+</ds:X509Certificate>
+</ds:X509Data>
+<ds:KeyValue>
+<ds:RSAKeyValue>
+<ds:Modulus>
+6A2NYk/zViECL1JEpvI9vsgMsMXjD7ZeoOMXFTC0oa10PG4sg9DTXjHtw2ADkl8OFXJULZv7BdOz
+YDAvF4ZQm/GFszvU9LfqxK+ulhyUOwMvg7qrzNvCXcZ5oKWnSkZ2BRuL+mRDOak/O9PPi+fD49rJ
+B01PDc9OFo/ipuyGvZA73lrdP9rI+kKX86ksekyabxLhEdlCJkka9SBrK9Sa5sQc6oPhTo5lEBZb
+FGp8jQvDCBphZJMkoFcSe8Zfb+xJbiARx8Bv0BlcjFzppvh4HOSrd3c0fZp2c28QKWjCWIgU6YOz
+GyhNk2GFUlR0yfmy2xHsPBNqhgyVZJ0Sdn+PlQ==
+</ds:Modulus>
+<ds:Exponent>AQAB</ds:Exponent>
+</ds:RSAKeyValue>
+</ds:KeyValue>
+</ds:KeyInfo>
+<ds:Object Id="Signature891853-Object847332"><etsi:QualifyingProperties Target="#Signature891853"><etsi:SignedProperties Id="Signature891853-SignedProperties121585"><etsi:SignedSignatureProperties><etsi:SigningTime>2022-01-03T16:12:25-05:00</etsi:SigningTime><etsi:SigningCertificate><etsi:Cert><etsi:CertDigest><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod><ds:DigestValue>vB++EZeTJWCNJk7CFmV+DSHDhC4=</ds:DigestValue></etsi:CertDigest><etsi:IssuerSerial><ds:X509IssuerName>CN=AUTORIDAD DE CERTIFICACION SUBCA-2 SECURITY DATA,OU=ENTIDAD DE CERTIFICACION DE INFORMACION,O=SECURITY DATA S.A. 2,C=EC</ds:X509IssuerName><ds:X509SerialNumber>1477576552</ds:X509SerialNumber></etsi:IssuerSerial></etsi:Cert></etsi:SigningCertificate></etsi:SignedSignatureProperties><etsi:SignedDataObjectProperties><etsi:DataObjectFormat ObjectReference="#Reference-ID-336369"><etsi:Description>contenido comprobante</etsi:Description><etsi:MimeType>text/xml</etsi:MimeType></etsi:DataObjectFormat></etsi:SignedDataObjectProperties></etsi:SignedProperties></etsi:QualifyingProperties></ds:Object></ds:Signature></factura>
