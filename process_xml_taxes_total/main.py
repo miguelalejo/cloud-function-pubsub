@@ -2,7 +2,7 @@ import base64
 from MongoService import *
 from ProcessorReport import *
 import datetime
-from google.protobuf.json_format import MessageToJson
+import json
 
 def createObject(mgConector,groupId,blobExcel,ruc):
     try:
@@ -24,7 +24,8 @@ def hello_pubsub(event, context):
           context (google.cloud.functions.Context): Metadata for the event.
      """
      print("Data",event['data'])
-     json_object = MessageToJson(event['data'])      
+     pubsub_message = base64.b64decode(event['data']).decode('utf-8')
+     json_object = json.loads(pubsub_message)
      uri = "cluster0.2gzpcvj.mongodb.net/?retryWrites=true&w=majority"
      user = "m001-student"
      password = "m001-mongodb-basics"    
