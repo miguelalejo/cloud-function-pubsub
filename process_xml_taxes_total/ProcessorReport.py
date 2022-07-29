@@ -58,5 +58,5 @@ class GenerarReporte():
   
   def exportarReporte(self,reporte,groupId):
     ruta = os.path.join(tmpdir,"{fId}.xlsx".format(fId=groupId))
-    reporte.to_excel(ruta)
+    reporte.to_excel(ruta,index=False)
     return ruta
