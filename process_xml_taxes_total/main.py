@@ -39,6 +39,7 @@ def hello_pubsub(event, context):
                procesarComprobante = ProcessadorXML(fileBlob) 
                comprobanteTO = procesarComprobante.procesar()
                listComprobantes.append(comprobanteTO)
+     print("Tamanio lista",len(listComprobantes))
      if len(listComprobantes):
           print("Generar Reporte")
           generarReporte = GenerarReporte()
