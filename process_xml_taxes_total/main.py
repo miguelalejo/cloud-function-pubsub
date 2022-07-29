@@ -2,6 +2,7 @@ import base64
 from MongoService import *
 from ProcessorReport import *
 import datetime
+from google.protobuf.json_format import MessageToJson
 
 def createObject(mgConector,groupId,blobExcel,ruc):
     try:
@@ -22,12 +23,14 @@ def hello_pubsub(event, context):
           event (dict): Event payload.
           context (google.cloud.functions.Context): Metadata for the event.
      """
-     pubsub_message = base64.b64decode(event['data']).decode('utf-8')
+     print("Data",event['data'])
+     json_object = MessageToJson(event['data'])      
      uri = "cluster0.2gzpcvj.mongodb.net/?retryWrites=true&w=majority"
      user = "m001-student"
      password = "m001-mongodb-basics"    
      mgConectorServ = MongoServiceConector(uri, user, password)
-     groupId = int(pubsub_message)
+     groupId = int(json_object['idTransaction'])
+     nFiles = int(json_object['nFiles'])
      documents = mgConectorServ.find(bd_name="edocuments",collecion="bills",query= {'group_id': groupId },projection={ "group_id": 1, "_id": 1 ,"file_name":1,"blob_xml":1})
      listComprobantes = []
      for doc in documents:
@@ -40,6 +43,7 @@ def hello_pubsub(event, context):
                comprobanteTO = procesarComprobante.procesar()
                listComprobantes.append(comprobanteTO)
      print("Tamanio lista",len(listComprobantes))
+     print("Tamanio lista esperado",nFiles)
      if len(listComprobantes):
           print("Generar Reporte")
           generarReporte = GenerarReporte()
