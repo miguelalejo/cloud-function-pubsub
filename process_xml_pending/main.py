@@ -23,15 +23,17 @@ def hello_pubsub(event, context):
      user = "m001-student"
      password = "m001-mongodb-basics"    
      mgConectorServ = MongoServiceConector(uri, user, password)
-     documents = mgConectorServ.find(bd_name="edocuments",collecion="pending_groups",query= {'status':'PENDING'},projection={ "group_id": 1,"nFiles": 1})     
+     documents = mgConectorServ.find(bd_name="edocuments",collecion="pending_groups",query= {'status':'PENDING'},projection={ "group_id": 1,"nFiles": 1,"_id":1})     
      nFileSaved = documents.count()
      print("Tamanio lista Pending",nFileSaved)
      for doc in documents:
-          if "group_id" in doc.keys():           
+          if "group_id" in doc.keys(): 
+               id = doc["_id"]          
                groupId = doc["group_id"]
                nFiles = doc["nFiles"]
                print("Generar Pending",groupId)
-               r = requests.put("https://fnservicefunctionfra-pcqrvbtxdq-uc.a.run.app/", data={'idTransaction': groupId, 'nFiles': nFiles})
+               print("Generar Pending",id)
+               r = requests.put("https://fnservicefunctionfra-pcqrvbtxdq-uc.a.run.app/", data={'idTransaction': id, 'nFiles': nFiles})
                print(r.status_code, r.reason)
                updateOne(mgConectorServ,groupId)
      
