@@ -1,12 +1,12 @@
 import base64
 from MongoService import *
 import requests
-from bson import ObjectId
+from bson.objectid import ObjectId
 
 def updateOne(mgConector,id):
     try:
         newvalues = { "$set": { "status": "DONE" } }
-        mgConector.update_one(bd_name="edocuments",collecion="pending_groups",query={"_id":id}, value=newvalues) 
+        mgConector.update_one(bd_name="edocuments",collecion="pending_groups",query={"_id":ObjectId(id)}, value=newvalues) 
     except DuplicateKeyError as e:
         print(e)
         print("Errro insert")
