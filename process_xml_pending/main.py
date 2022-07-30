@@ -32,7 +32,7 @@ def hello_pubsub(event, context):
                groupId = doc["group_id"]
                nFiles = doc["nFiles"]
                print("Generar Pending",groupId)
-               print("Generar Pending",id)
+               print("Id Mongo",id)
                r = requests.put("https://fnservicefunctionfra-pcqrvbtxdq-uc.a.run.app/", data={'idTransaction': id, 'nFiles': nFiles})
                print(r.status_code, r.reason)
                updateOne(mgConectorServ,groupId)
