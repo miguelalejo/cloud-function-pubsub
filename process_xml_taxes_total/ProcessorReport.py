@@ -10,9 +10,15 @@ tmpdir = tempfile.gettempdir()
 class ProcessadorXML():
   def __init__(self,xml) -> None:
       self._xml = xml
+  
+  def extract_inner(self):
+    root = ET.fromstring(self._xml)
+    vs_data = root.find('.//comprobante')
+    inner_xml = vs_data.text.strip()
+    return ET.fromstring(inner_xml)
 
   def procesar(self):
-    root = ET.fromstring(self._xml)
+    root = self.extract_inner()
     listXmlData = []
     print("All atributes ")    
     codDoc = root.find('infoTributaria/codDoc').text
