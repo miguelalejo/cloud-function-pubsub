@@ -23,7 +23,7 @@ class ComprobanteTO:
       self._estab = estab
       self._ptoEmi = ptoEmi
       self._secuencial = secuencial
-      self._fechaEmision = datetime.strptime("01/12/2021", '%d/%m/%Y')
+      self._fechaEmision = datetime.strptime(fechaEmision, '%d/%m/%Y')
       self._impuestos = impuestos
       self._totalIva = 0
       self._totalIce = 0
