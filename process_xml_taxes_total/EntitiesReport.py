@@ -17,13 +17,14 @@ class ImpuestoTO:
   
 
 class ComprobanteTO:
-  def __init__(self,codDoc,ruc,estab,ptoEmi,secuencial,fechaEmision,impuestos) -> None:
+  def __init__(self,codDoc,ruc,estab,ptoEmi,secuencial,fechaEmision,identificacionComprador,impuestos) -> None:
       self._codDoc = codDoc
       self._ruc = ruc
       self._estab = estab
       self._ptoEmi = ptoEmi
       self._secuencial = secuencial
       self._fechaEmision = datetime.strptime(fechaEmision, '%d/%m/%Y')
+      self._identificacionComprador = identificacionComprador
       self._impuestos = impuestos
       self._totalIva = 0
       self._totalIce = 0

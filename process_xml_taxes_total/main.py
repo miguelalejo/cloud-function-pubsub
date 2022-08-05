@@ -59,11 +59,11 @@ def hello_pubsub(event, context):
           if len(listComprobantes):
                print("Generar Reporte")
                generarReporte = GenerarReporte()
-               reporte,ruc = generarReporte.crearReporteDevIva(listComprobantes)
+               reporte,identificacionComprador = generarReporte.crearReporteDevIva(listComprobantes)
                filePath = generarReporte.exportarReporte(reporte,groupId)
                print("Generarado Reporte")
                blobExcel = readfile(filePath)
-               createObject(mgConectorServ,groupId,blobExcel,ruc)
+               createObject(mgConectorServ,groupId,blobExcel,identificacionComprador)
                print("Enviado Reporte")
           
           print(pubsub_message)

@@ -27,6 +27,7 @@ class ProcessadorXML():
     ptoEmi = root.find('infoTributaria/ptoEmi').text
     secuencial = root.find('infoTributaria/secuencial').text
     fechaEmision = root.find('infoFactura/fechaEmision').text
+    identificacionComprador = root.find('infoFactura/identificacionComprador').text
     impuestos = []
     for totalImpuesto in root.findall('infoFactura/totalConImpuestos/totalImpuesto'):
         codigo = int(totalImpuesto.find('codigo').text)
@@ -41,7 +42,7 @@ class ProcessadorXML():
         print(valor)
         impuestoTO = ImpuestoTO(codigo,codigoPorcentaje,baseImponible,tarifa,valor)
         impuestos.append(impuestoTO)
-    return ComprobanteTO(codDoc,ruc,estab,ptoEmi,secuencial,fechaEmision,impuestos)
+    return ComprobanteTO(codDoc,ruc,estab,ptoEmi,secuencial,fechaEmision,identificacionComprador,impuestos)
 
 class GenerarReporte():
   def crearListaDevIva(self,comprobantes:ComprobanteTO):
@@ -51,16 +52,16 @@ class GenerarReporte():
       if comprobante.gravaImpuesto and TipoDocumento.FACTURA.value == comprobante.codDoc :
         print("Grava")
         print(comprobante.dia)
-        tuplaComprobante = {'RUC PROVEEDOR':comprobante.ruc,'NRO_FACTURA':comprobante.nroFactura,'DIA':comprobante.dia,'MES':comprobante.mes,'ANIO':comprobante.anio,'IVA':comprobante.totalIva,'ICE':comprobante.totalIce}      
+        tuplaComprobante = {'ID COMPRADOR':comprobante.identificacionComprador, 'RUC PROVEEDOR':comprobante.ruc,'NRO_FACTURA':comprobante.nroFactura,'DIA':comprobante.dia,'MES':comprobante.mes,'ANIO':comprobante.anio,'IVA':comprobante.totalIva,'ICE':comprobante.totalIce}      
         listaComprobantes.append(tuplaComprobante)
-    return listaComprobantes,comprobante.ruc
+    return listaComprobantes,comprobante.identificacionComprador
 
   def crearReporteDevIva(self,comprobantes:ComprobanteTO):
-    listaComprobantes,ruc = self.crearListaDevIva(comprobantes)
+    listaComprobantes,identificacionComprador = self.crearListaDevIva(comprobantes)
     dfReporteDevIva = pd.DataFrame(listaComprobantes,
-                    columns=['RUC PROVEEDOR','NRO_FACTURA','DIA','MES','ANIO','IVA','ICE' 
+                    columns=['ID COMPRADOR','RUC PROVEEDOR','NRO_FACTURA','DIA','MES','ANIO','IVA','ICE' 
     ]).sort_values(by='IVA', ascending=False)
-    return dfReporteDevIva,ruc
+    return dfReporteDevIva,identificacionComprador
   
   def exportarReporte(self,reporte,groupId):
     ruta = os.path.join(tmpdir,"{fId}.xlsx".format(fId=groupId))
