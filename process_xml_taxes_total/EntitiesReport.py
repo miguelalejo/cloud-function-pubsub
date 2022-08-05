@@ -68,7 +68,11 @@ class ComprobanteTO:
     
   @property
   def gravaImpuesto(self):
-    return self._gravaImpuesto 
+    return self._gravaImpuesto
+  
+  @property
+  def identificacionComprador(self):
+    return self._identificacionComprador 
 
   def _gravaImpuestoDevolucion(self):
     tieneImpuestoGravado = False
