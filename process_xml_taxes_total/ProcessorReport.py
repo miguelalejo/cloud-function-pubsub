@@ -58,9 +58,13 @@ class GenerarReporte():
 
   def crearReporteDevIva(self,comprobantes:ComprobanteTO):
     listaComprobantes,identificacionComprador = self.crearListaDevIva(comprobantes)
+    custom_dict = {'01': 1, '02': 2, '03': 3,'04': 4,'05': 5,'06': 6,'07': 7,'08': 8,'09': 9,'10': 10,'11': 11,'12': 12} 
+
     dfReporteDevIva = pd.DataFrame(listaComprobantes,
                     columns=['ID COMPRADOR','RUC PROVEEDOR','NRO_FACTURA','DIA','MES','ANIO','IVA','ICE' 
     ]).sort_values(by='IVA', ascending=False)
+    dfReporteDevIva.sort_values(by=['MES'], key=lambda x: x.map(custom_dict))
+
     return dfReporteDevIva,identificacionComprador
   
   def exportarReporte(self,reporte,groupId):
