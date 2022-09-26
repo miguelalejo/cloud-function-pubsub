@@ -64,7 +64,7 @@ class GenerarReporte():
                     columns=['ID COMPRADOR','RUC PROVEEDOR','NRO_FACTURA','DIA','MES','ANIO','IVA','ICE' 
     ])
     
-    dfReporteDevIva['mes_rank'] = dfReporteDevIva.sort_values(by=['MES'], key=lambda x: x.map(custom_dict),ascending=[True]).groupby('MES')['IVA'].rank(ascending=True)
+    dfReporteDevIva['mes_rank'] = dfReporteDevIva.sort_values(by=['MES'], key=lambda x: x.map(custom_dict),ascending=[True]).groupby('MES')['IVA'].rank(ascending=False)
    
     
     #df['mes_rank'] = df.sort_values(by=['MES'], key=lambda x: x.map(custom_dict),ascending=[True]).groupby('MES')['Name'].rank(ascending=True)
