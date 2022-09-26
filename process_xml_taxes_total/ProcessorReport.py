@@ -62,7 +62,9 @@ class GenerarReporte():
 
     dfReporteDevIva = pd.DataFrame(listaComprobantes,
                     columns=['ID COMPRADOR','RUC PROVEEDOR','NRO_FACTURA','DIA','MES','ANIO','IVA','ICE' 
-    ]).sort_values(by=['MES'], key=lambda x: x.map(custom_dict),ascending=[True]).groupby('MES')['IVA'].rank(ascending=True)
+    ])
+    
+    dfReporteDevIva['mes_rank'] = dfReporteDevIva.sort_values(by=['MES'], key=lambda x: x.map(custom_dict),ascending=[True]).groupby('MES')['IVA'].rank(ascending=True)
    
     
     #df['mes_rank'] = df.sort_values(by=['MES'], key=lambda x: x.map(custom_dict),ascending=[True]).groupby('MES')['Name'].rank(ascending=True)
