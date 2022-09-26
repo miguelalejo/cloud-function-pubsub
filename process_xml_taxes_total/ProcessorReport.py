@@ -69,7 +69,7 @@ class GenerarReporte():
     
     #df['mes_rank'] = df.sort_values(by=['MES'], key=lambda x: x.map(custom_dict),ascending=[True]).groupby('MES')['Name'].rank(ascending=True)
     #dfReporteDevIva = df.sort_values(['MES', 'yearly_rank'])
-    dfReporteDevIva = dfReporteDevIva.sort_values(by=['MES','mes_rank'])
+    dfReporteDevIva = dfReporteDevIva.sort_values(['MES','mes_rank'])
     dfReporteDevIva.drop(columns=['mes_rank'],inplace=True)
     return dfReporteDevIva,identificacionComprador
   
